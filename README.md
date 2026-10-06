@@ -9,11 +9,24 @@
 | 平台 | 文件 | 凭据（环境变量） | 说明 |
 |---|---|---|---|
 | **百度贴吧** | `tieba_sign.js`[自写] | `BAIDU_COOKIE`（含 BDUSS） | 关注吧全签；自动跟随重定向 |
-| **百度网盘** | `an_baiduwangpan_checkin.py` | `BAIDU_COOKIE` | 每日签到+答题 |
-| **知乎（V2EX）** | `v2ex_signin.mjs`[自写] | `V2EX_COOKIES` | 铜币签到 |
+| **百度网盘** | `baidu_signin.py` | `BAIDU_COOKIE` | 每日签到+答题（agluo 版） |
+| **百度网盘(旧)** | `an_baiduwangpan_checkin.py` | `BAIDU_COOKIE` | 已废弃，可用 baidu_signin.py 替代 |
+| **V2EX** | `v2ex_signin.py`[自写] | `V2EX_COOKIES` | 铜币签到；requests.Session 保持会话（修复 PB3_SESSION 轮换导致领取失败） |
+| **V2EX(旧)** | `v2ex_signin.mjs` | `V2EX_COOKIES` | 已废弃，PB3 会话问题，勿再用 |
 | **AgentRouter** | `agentrouter_checkin.py` | `AGENTROUTER_ACCOUNT` | 登录+签到 |
 | **WorkBuddy** | `raw_main_workbuddy_signin.py` | 相关 WB 变量 | 每日任务 |
 | **WorkBuddy成长** | `wb_growth_signin.py` + `wb_growth.sh` | `WB_*` | 成长任务 |
+| **速维云** | `svyun.py`[自写] | `SVYUN_USER1`/`SVYUN_PWD1` | 每日签到+转盘抽奖，多账号 |
+| **亿邦AI** | `ebondai_checkin.py`[自写] | `ebondai-credentials.md` + `ebondai-api-key.md`(不入库) | 对话签到保 API 额度 |
+| **CodeBuddy/Trae** | `checkin.py`[自写] | 凭据 JSON(accessToken 等) | 双平台状态保活 |
+| **NodeSeek** | `nodeseek_checkin.py`[自写] | `NODESEEK_COOKIE` | 论坛签到 |
+| **GLaDOS** | `glados_checkin.py`[自写] | cookie | 网络签到 |
+| **OSHWHub** | `oshwhub-checkin.py`[自写] | cookie | 立创开源硬件签到 |
+| **有道云笔记** | `youdao_checkin.py`[自写] | cookie | 签到 |
+| **微博/超话** | `weibo_checkin.py` / `weibo_chaohua_checkin.py`[自写] | 微博 cookie | 签到 |
+| **什么值得买** | `zdm_draw.py`[自写] | `SMZDM_COOKIE` | 抽奖 |
+| **京东** | `jd_sign.js`[自写] | 京东 cookie | 每日任务 |
+| **Telegram 推送** | `tg_send.py` / `notify.py` / `notify_wrap.sh`[自写] | `TG_BOT_TOKEN`/`TG_USER_ID` | 通用通知 helper |
 | **Trae** | `trae_checkin.sh` | `TRAE_*` | IDE 签到 |
 | **酷狗概念版(VIP)** | `kugou_main.js` + `kugou_qrcode.js` | `kg_token.json`(二维码登录) | 听歌+看广告领 VIP，自动续 token |
 | **爱奇艺** | `dlp/iqiyi_checkin.py` | `IQIYI_COOKIE` | 签到+抽奖 |
