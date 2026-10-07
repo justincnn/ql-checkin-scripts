@@ -30,7 +30,7 @@
 | **Trae** | `trae_checkin.sh` | `TRAE_*` | IDE 签到 |
 | **酷狗概念版(VIP)** | `kugou_main.js` + `kugou_qrcode.js` | `kg_token.json`(二维码登录) | 听歌+看广告领 VIP，自动续 token |
 | **酷狗金币任务** | `kugou_task.py` | `KGGNB`(备注#token#userid) | 每日金币任务自动领取(多账号,签名逆向后零依赖) |
-| **酷狗金币提现** | `kugou_withdraw.py` | `KGWXD`(备注#token#userid#openid) | 定时抢额度提现(窗口 0/8/12/16/20 点,需 App 内已微信授权+实名) |
+| **酷狗金币提现** | `kugou_withdraw.py` | `KG`(备注#token#userid#openid) | 定时抢额度提现(窗口 0/8/12/16/20 点,需 App 内已微信授权+实名) |
 | **爱奇艺** | `dlp/iqiyi_checkin.py` | `IQIYI_COOKIE` | 签到+抽奖 |
 | **网易云音乐** | `dlp/netease_music_checkin.py` | `NETEASE_COOKIE` | 签到 |
 | **腾讯视频** | `dlp/tencent_video_checkin.py` | `TENCENT_VIDEO_COOKIE` | 签到 |
