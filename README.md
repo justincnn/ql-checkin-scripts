@@ -37,6 +37,7 @@
 | **139云盘** | `dlp/139_yunduo.py` | `YDYP_PHONE`/`YDYP_AUTH` | 云朵任务+签 |
 | **Bilibili** | `dlp/bilibili.py` | `BILIBILI_COOKIES` | 每日经验+投币 |
 | **LDC商店(ChatGPT)** | `ldc_checkin.py` | `CHECKIN_COOKIE` | 每日积分 |
+| **办公小浣熊(商汤)** | `xhx_office_points.py` | `XHX_RT` | 每日 300 积分确认 |
 
 ## 快速部署（青龙）
 
@@ -55,6 +56,7 @@ ql repo https://raw.githubusercontent.com/justincnn/ql-checkin-scripts/main/tieb
 （或手动 upload 脚本文件）
 
 ## 各平台凭据获取
+- **XHX_RT**（办公小浣熊）：登录 office.xiaohuanxiong.com → F12 → Application → Cookies → 复制 `raccoon_refresh_token` 的值（JWT，约 30 天有效）。**只抓 refresh_token 即可**，access token 只有 3 小时寿命。脚本每次续期后服务端会轮换 refresh_token 并落盘 `xhx_config.json`，所以**配置文件是权威值，env 只在首次 bootstrap 用**；换账号 = 改 env + 删掉 `xhx_config.json`。
 - **BAIDU_COOKIE**：登录 pan.baidu.com → F12 → Application → Cookies → 复制含 `BDUSS` 的完整 cookie
 - **酷狗**(VIP续费)：`cd kgcheckin && npm install && node kugou_qrcode.js` → 手机酷狗 App 扫码 → 生成 `kg_config.json`（自动续 token）
 - 其它均为对应平台登录后抓取 cookie（`xxx_COOKIE`）
