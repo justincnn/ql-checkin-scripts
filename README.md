@@ -38,6 +38,7 @@
 | **Bilibili** | `dlp/bilibili.py` | `BILIBILI_COOKIES` | 每日经验+投币 |
 | **LDC商店(ChatGPT)** | `ldc_checkin.py` | `CHECKIN_COOKIE` | 每日积分 |
 | **办公小浣熊(商汤)** | `xhx_office_points.py` | `XHX_RT`(可多账号, 换行分隔) | 每日 300 积分/账号 |
+| **魔搭 ModelScope** | `ms_magicube.py` | `MS_COOKIE`(可多账号, 换行分隔) | 每日 250 魔粒 + 点赞 40 |
 
 ## 快速部署（青龙）
 
@@ -56,6 +57,7 @@ ql repo https://raw.githubusercontent.com/justincnn/ql-checkin-scripts/main/tieb
 （或手动 upload 脚本文件）
 
 ## 各平台凭据获取
+- **MS_COOKIE**（魔搭 ModelScope）：登录 modelscope.cn → F12 → Application → Cookies → 复制整段。⚠️ **前置条件：必须先在「设置-账号」绑定并验证邮箱**，否则 `daily_active` 永远不发放（官方文档「魔粒使用前置要求」，实测绑定后立刻 200 到账）。⚠️ `m_session_id` 是**会话级且会被服务端主动吊销** —— 高频连刷 star 接口会吊销整个会话（表现为全接口 401「禁止访问」）；脚本已内置保守模式（每次限 3 轮点赞、间隔 3s、遇 401 立即停）。**同一份 cookie 不要同时给浏览器和脚本用**，会互相抢会话。
 - **XHX_RT**（办公小浣熊）：登录 office.xiaohuanxiong.com → F12 → Application → Cookies → 复制 `raccoon_refresh_token` 的值（JWT，约 30 天有效）。**只抓 refresh_token 即可**，access token 只有 3 小时寿命。脚本每次续期后服务端会轮换 refresh_token 并落盘 `xhx_config.json`，所以**配置文件是权威值，env 只在首次 bootstrap 用**；换账号 = 改 env + 删掉 `xhx_config.json`。**多账号**：`initrt <rt>` 逐条追加即可（按 JWT 里的 `name` 去重），或 env 值用换行分隔多条。
 - **BAIDU_COOKIE**：登录 pan.baidu.com → F12 → Application → Cookies → 复制含 `BDUSS` 的完整 cookie
 - **酷狗**(VIP续费)：`cd kgcheckin && npm install && node kugou_qrcode.js` → 手机酷狗 App 扫码 → 生成 `kg_config.json`（自动续 token）
